@@ -1,0 +1,25 @@
+/* * {
+
+} */
+
+body header nav {
+    margin-bottom: 40px;
+}
+
+ul.navbar-nav {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+ul.navbar-nav li span.nav-user {
+    color: rgba(101, 154, 204, 0.856);
+}
+
+form.logout {
+    display: none;
+}
+
+.front-row {
+    margin-bottom: 40px;
+}
