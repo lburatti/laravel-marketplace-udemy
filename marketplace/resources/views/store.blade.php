@@ -28,7 +28,7 @@
     </div>
     @if($store->products->count())
     @foreach($store->products as $key => $product)
-    <div class="col-md-4">
+    <div class="col-md-4 card-store-single">
         <div class="card" style="width: 100%;">
             @if($product->photos->count())
             <img src="{{ asset('storage/'.$product->photos->first()->image) }}" class="card-img-top" alt="...">

@@ -8,7 +8,7 @@
 @section('content')
 
 <div class="container">
-    <div class="col-md-6">
+    <div class="col-md-6 checkout">
         <div class="row">
             <div class="col-12">
                 <h2 class="card-title pt-3">Dados para pagamento:</h2>

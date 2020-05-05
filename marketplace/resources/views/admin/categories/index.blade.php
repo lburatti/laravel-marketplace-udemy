@@ -41,6 +41,7 @@
     </table>
   </div>
 </div>
+<hr>
 
 {{ $categories->links() }}
 

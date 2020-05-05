@@ -71,7 +71,7 @@
 
     <footer class="footer-nav">
         <div class="container-fluid">
-            <p class="m-0 p-0">2020.</p>
+            <p class="m-0 p-0">{{ date('Y') }}</p>
         </div>
     </footer>
 

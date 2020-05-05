@@ -33,6 +33,14 @@
             </ul>
 
             <ul class="navbar-nav ml-auto">
+
+                <!-- @if(!isset($user)) -->
+                <li class="nav-item">
+                    <a href="{{ route('login') }}" class="nav-link">Login</a>
+                </li>
+
+                <!-- @endif -->
+
                 @auth
                 <li class="nav-item @if(request()->is('my-orders')) active @endif">
                     <a href="{{ route('user.orders') }}" class="nav-link">Meus Pedidos</a>
@@ -74,7 +82,7 @@
 
     <footer class="footer-nav">
         <div class="container-fluid">
-            <p class="m-0 p-0">2020.</p>
+            <p class="m-0 p-0">{{ date('Y') }}</p>
         </div>
     </footer>
 

@@ -10,7 +10,7 @@
     </div>
     @if($category->products->count())
     @foreach($category->products as $key => $product)
-    <div class="col-md-4 front-row">
+    <div class="col-md-4 front-row card-category-single">
         <div class="card" style="width: 100%;">
             @if($product->photos->count())
             <img src="{{ asset('storage/'.$product->photos->first()->image) }}" class="card-img-top" alt="...">
