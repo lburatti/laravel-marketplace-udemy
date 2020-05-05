@@ -10,44 +10,50 @@
 <div class="container">
     <div class="col-md-6">
         <div class="row">
-            <h2>Dados para pagamento:</h2>
+            <div class="col-12">
+                <h2 class="card-title pt-3">Dados para pagamento:</h2>
+                <hr>
+            </div>
         </div>
-        <div class="row mt-2">
-            <form action="" method="POST">
-                <div class="row">
-                    <div class="col-md-12 form-group">
-                        <label for="">Nome no Cartão</label>
-                        <input type="text" class="form-control" name="card_name">
+        <div class="row">
+            <div class="col-12">
+                <form action="" method="POST">
+                    <div class="row">
+                        <div class="col-md-12 form-group my-1">
+                            <label class="col-form-label" for="">Nome no Cartão</label>
+                            <input type="text" class="form-control" name="card_name">
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 form-group">
-                        <label for="">Número do Cartão <span class="brand"></span></label>
-                        <input type="text" class="form-control" name="card_number">
-                        <input type="hidden" name="card_brand">
+                    <div class="row">
+                        <div class="col-md-12 form-group my-1">
+                            <label class="col-form-label" for="">Número do Cartão <span class="brand"></span></label>
+                            <input type="text" class="form-control" name="card_number">
+                            <input type="hidden" name="card_brand">
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 form-group">
-                        <label for="">Mês de vencimento</label>
-                        <input type="text" class="form-control" name="card_month">
+                    <div class="row">
+                        <div class="col-md-6 form-group my-1">
+                            <label class="col-form-label" for="">Mês de vencimento</label>
+                            <input type="text" class="form-control" name="card_month">
+                        </div>
+                        <div class="col-md-6 form-group my-1">
+                            <label class="col-form-label" for="">Ano de vencimento</label>
+                            <input type="text" class="form-control" name="card_year">
+                        </div>
                     </div>
-                    <div class="col-md-6 form-group">
-                        <label for="">Ano de vencimento</label>
-                        <input type="text" class="form-control" name="card_year">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 form-group">
-                        <label for="">Código de Segurança</label>
-                        <input type="text" class="form-control" name="card_cvv">
-                    </div>
-                    <div class="col-md-12 installments form-group">
+                    <div class="row">
+                        <div class="col-md-6 form-group my-1">
+                            <label class="col-form-label" for="">Código de Segurança</label>
+                            <input type="text" class="form-control" name="card_cvv">
+                        </div>
+                        <div class="col-md-12 installments form-group">
 
+                        </div>
                     </div>
-                </div>
-                <button class="btn btn-lg btn-success proccessCheckout">Finalizar Pagamento</button>
-            </form>
+                    <button class="btn btn-lg btn-success proccessCheckout">Finalizar Pagamento</button>
+                </form>
+            </div>
+
         </div>
     </div>
 </div>

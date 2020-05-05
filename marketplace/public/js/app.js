@@ -40160,8 +40160,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\Meus-Estudos\laravel-code-experts-udemy\marketplace\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\Meus-Estudos\laravel-code-experts-udemy\marketplace\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\GITHUB\laravel-marketplace-udemy\marketplace\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\GITHUB\laravel-marketplace-udemy\marketplace\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

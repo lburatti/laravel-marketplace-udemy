@@ -48,7 +48,8 @@ class CartController extends Controller
         }
 
         flash('Produto adicionado no carrinho')->success();
-        return redirect()->route('product.single', ['slug' => $product['slug']]);
+        // return redirect()->route('product.single', ['slug' => $product['slug']]);
+        return redirect()->route('cart.index');
     }
 
     public function remove($slug)

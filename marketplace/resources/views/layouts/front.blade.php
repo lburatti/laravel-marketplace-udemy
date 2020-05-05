@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom: 40px;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
         <a class="navbar-brand" href="{{route('home')}}">Marketplace</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +47,7 @@
                     </a>
                 </li>
                 @auth
-                <li class="nav-item">
+                <li class="nav-item m-0 p-2">
                     <span class="nav-user">Olá, {{ auth()->user()->name }}</span>
                 </li>
                 <li class="nav-item">
@@ -71,6 +71,12 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
     @yield('scripts')
+
+    <footer class="footer-nav">
+        <div class="container-fluid">
+            <p class="m-0 p-0">2020.</p>
+        </div>
+    </footer>
 
 </body>
 

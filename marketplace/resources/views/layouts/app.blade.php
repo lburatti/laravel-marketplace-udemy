@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="{{ route('home') }}">Marketplace</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -43,7 +43,7 @@
                             <i class="fa fa-bell"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item m-0 p-2">
                         <span class="nav-user">Olá, {{ auth()->user()->name }}</span>
                     </li>
                     <li class="nav-item">
@@ -68,7 +68,13 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
     @yield('scripts')
-     
+
+    <footer class="footer-nav">
+        <div class="container-fluid">
+            <p class="m-0 p-0">2020.</p>
+        </div>
+    </footer>
+
 </body>
 
 </html>

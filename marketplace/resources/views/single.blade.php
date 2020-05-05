@@ -6,7 +6,7 @@
     <div class="col-6">
         @if($product->photos->count())
         <img src="{{ asset('storage/'.$product->photos->first()->image) }}" alt="" class="card-img-top">
-        <div class="row" style="margin-top: 20px">
+        <div class="row">
             @foreach ($product->photos as $photo)
             <div class="col-4">
                 <img src="{{ asset('storage/'.$photo->image) }}" alt="" class="img-fluid">
@@ -19,10 +19,10 @@
     </div>
     <div class="col-6">
         <div class="col-md-12">
-            <h2>{{ $product->name }}</h2>
-            <p>{{ $product->description }}</p>
-            <h3>R$ {{ number_format($product->price, 2, ',', '.') }}</h3>
-            <span>Loja: {{ $product->store->name }}</span>
+            <h2 class="card-title">{{ $product->name }}</h2>
+            <p class="card-text">{{ $product->description }}</p>
+            <h3 class="card-subtitle">R$ {{ number_format($product->price, 2, ',', '.') }}</h3>
+            <span class="card-text">Loja: {{ $product->store->name }}</span>
         </div>
         <div class="product-add col-md-12">
             <hr>
@@ -32,10 +32,10 @@
                 <input type="hidden" name="product[price]" value="{{ $product->price }}">
                 <input type="hidden" name="product[slug]" value="{{ $product->slug }}">
                 <div class="form-group">
-                    <label for="">Quantidade</label>
+                    <label class="card-text" for="">Quantidade</label>
                     <input type="number" name="product[amount]" class="form-control col-md-2" value="1">
                 </div>
-                <button class="btn btn-lg btn-danger">Comprar</button>
+                <button class="btn btn-lg btn-success">Comprar</button>
             </form>
         </div>
 

@@ -4,11 +4,10 @@
 
 <div class="row">
     <div class="col-12">
-        <h2>Carrinho de Compras</h2>
+        <h2 class="card-title pt-3">Carrinho de Compras</h2>
         <hr>
     </div>
     <div class="col-12">
-
         @if($cart)
         <table class="table table-striped">
             <thead>
@@ -36,7 +35,10 @@
 
                     <td>R$ {{ number_format($subtotal, 2, ',', '.') }}</td>
                     <td>
-                        <a href="{{ route('cart.remove', ['slug' => $c['slug']]) }}" class="btn btn-sm btn-danger">REMOVER</a>
+                        <a href="{{ route('cart.remove', ['slug' => $c['slug']]) }}" class="btn btn-sm btn-danger m-0">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                        <!-- <a href="{{ route('cart.remove', ['slug' => $c['slug']]) }}" class="btn btn-sm btn-danger">REMOVER</a> -->
                     </td>
                 </tr>
                 @endforeach
@@ -48,7 +50,7 @@
             </tbody>
         </table>
         <hr>
-        <div class="col-md-12">
+        <div class="col-md-12 px-0">
             <a href="{{ route('checkout.index') }}" class="btn btn-lg btn-success float-right">Concluir Compra</a>
             <a href="{{ route('cart.cancel') }}" class="btn btn-lg btn-danger float-letf">Cancelar Compra</a>
         </div>

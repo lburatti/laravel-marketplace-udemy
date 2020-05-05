@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RegisterRequest;
 use App\Mail\UserRegisteredEmail;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -27,64 +28,50 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
     protected $redirectTo = '/admin/stores';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
+    protected function validator(array $request)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        return Validator::make($request, RegisterRequest::$rules);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
+    protected function create(array $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'profile' => 'PROFILE_USER'
+        $user = User::create([
+            'name' => $request['name'],
+            'cpf' => $request['cpf'],
+            'date_birth' => $request['date_birth'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+            'profile' => 'PROFILE_USER',
+            'mobile_phone' => $request['mobile_phone'],
+            'cep' => $request['cep'],
+            'address' => $request['address'],
+            'number' => $request['number'],
+            'complement' => $request['complement'],
+            'city' => $request['city'],
+            'uf' => $request['uf']
         ]);
+
+        flash('Cadastro criado com sucesso')->success();
+        return redirect()->route('home');
     }
 
     // após registro do usuário, se tiver carrinho de compras -> ir pro checkout
-    protected function registered(Request $request, $user)
+    protected function registered(RegisterRequest $request, $user)
     {
         Mail::to($user->email)->send(new UserRegisteredEmail($user));
 
-        if($user->profile == 'PROFILE_STORE') {
+        if ($user->profile == 'PROFILE_STORE') {
             return redirect()->route('stores.index');
         }
-        
-        if($user->profile == 'PROFILE_USER' && session()->has('cart')) {
+
+        if ($user->profile == 'PROFILE_USER' && session()->has('cart')) {
             return redirect()->route('checkout.index');
         } else {
             return redirect()->route('home');
