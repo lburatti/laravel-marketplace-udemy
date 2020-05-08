@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <div class="row">
+    <div class="row pages-margin">
         <div class="col-4">
             @if($store->logo)
             <img src="{{ asset('storage/'.$store->logo) }}" alt="Logo da loja: {{ $store->name }}" class="img-fluid">

@@ -23,14 +23,15 @@ class RegisterRequest extends FormRequest
      */
     public static $rules = [
         'name' => 'required',
-        'cpf' => 'required|min:11|max:11',
-        'date_birth' => 'required',
+        'cpf' => 'required|min:11|max:14',
+        'date_birth' => 'required|min:8|max:10',
         'email' => 'required|email:rfc,dns',
         'password' => 'required|min:8',
-        'mobile_phone' => 'required|min:10|max:11',
-        'cep' => 'required|min:8|max:8',
+        'mobile_phone' => 'required|min:10|max:15',
+        'cep' => 'required|min:8|max:9',
         'address' => 'required',
         'number' => 'required',
+        'neighborhood' => 'required',
         'city' => 'required',
         'uf' => 'required',
     ];

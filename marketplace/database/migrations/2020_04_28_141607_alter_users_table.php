@@ -22,6 +22,7 @@ class AlterUsersTable extends Migration
             $table->string('address');
             $table->string('number');
             $table->string('complement')->nullable();
+            $table->string('neighborhood');
             $table->string('city');
             $table->string('uf');
         });
@@ -43,6 +44,7 @@ class AlterUsersTable extends Migration
             $table->dropColumn('address');
             $table->dropColumn('number');
             $table->dropColumn('complement');
+            $table->dropColumn('neighborhood');
             $table->dropColumn('city');
             $table->dropColumn('state');
         });

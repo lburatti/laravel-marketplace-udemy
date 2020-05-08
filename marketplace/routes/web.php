@@ -4,21 +4,13 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\StoreController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/product/{slug}', 'HomeController@single')->name('product.single');
 Route::get('/category/{slug}', 'CategoryController@index')->name('category.single');
 Route::get('/store/{slug}', 'StoreController@index')->name('store.single');
+
+Route::get('/register-store', 'RegisterStoreController@index')->name('register-store.index');
+Route::post('/register-store', 'RegisterStoreController@create')->name('register-store.create');
 
 Route::prefix('cart')->group(function () {
     Route::get('/', 'CartController@index')->name('cart.index');
@@ -53,18 +45,3 @@ Route::group(['middleware' => ['auth', 'access.control.store.admin']], function 
 });
 
 Auth::routes();
-
-Route::get('not', function() {
-    // $user = \App\User::find(21);
-    // TESTE: CRIANDO NOVA NOTIFICAÇÃO
-    // $user->notify(new \App\Notifications\StoreReceiveNewOrder());
-
-    // TESTE: PARA MARCAR COMO LIDA
-    // $notification = $user->notifications->first();
-    // $notification->markAsRead();
-
-    // TESTE: TRAZER QUANTIDADE DE NOTIFICAÇÕES Não Lidas
-    // return $user->unreadNotifications->count();    
-
-    // return $user->unreadNotifications;
-});

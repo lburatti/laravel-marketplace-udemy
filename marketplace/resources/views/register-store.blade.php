@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8 register">
             <div class="card">
-                <div class="card-header">Cadastro</div>
+                <div class="card-header">Cadastre-se para incluir sua LOJA em nosso Marketplace</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register-store.create') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">

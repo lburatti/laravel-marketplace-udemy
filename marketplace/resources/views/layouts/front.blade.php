@@ -33,19 +33,18 @@
             </ul>
 
             <ul class="navbar-nav ml-auto">
-
-                <!-- @if(!isset($user)) -->
-                <li class="nav-item">
-                    <a href="{{ route('login') }}" class="nav-link">Login</a>
-                </li>
-
-                <!-- @endif -->
-
                 @auth
+                <?php $userProfile = Auth::user()->profile; ?>
+                @if ($userProfile == 'PROFILE_USER')
                 <li class="nav-item @if(request()->is('my-orders')) active @endif">
                     <a href="{{ route('user.orders') }}" class="nav-link">Meus Pedidos</a>
                 </li>
-                @endauth
+                @endif
+                @if ($userProfile == 'PROFILE_STORE')
+                <li class="nav-item">
+                    <a href="{{ route('stores.index') }}" class="nav-link">Área Admin</a>
+                </li>
+                @endif
                 <li class="nav-item">
                     <a href="{{ route('cart.index') }}" class="nav-link">
                         @if(session()->has('cart'))
@@ -54,7 +53,6 @@
                         <i class="fa fa-shopping-cart fa-2x"></i>
                     </a>
                 </li>
-                @auth
                 <li class="nav-item m-0 p-2">
                     <span class="nav-user">Olá, {{ auth()->user()->name }}</span>
                 </li>
@@ -65,6 +63,23 @@
                     </form>
                 </li>
                 @endauth
+
+                @guest
+                <li class="nav-item btn-register-store">
+                    <a href="{{ route('register-store.index') }}" class="nav-link">Cadastrar Minha Loja</a>
+                </li>
+                <li class="nav-item btn-login">
+                    <a href="{{ route('login') }}" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('cart.index') }}" class="nav-link">
+                        @if(session()->has('cart'))
+                        <span class="badge badge-danger">{{ count(session()->get('cart')) }}</span>
+                        @endif
+                        <i class="fa fa-shopping-cart fa-2x"></i>
+                    </a>
+                </li>
+                @endguest
             </ul>
 
         </div>

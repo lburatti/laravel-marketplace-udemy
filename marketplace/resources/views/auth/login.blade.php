@@ -18,9 +18,9 @@
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -32,9 +32,9 @@
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -58,10 +58,18 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        Esqueceu sua senha?
-                                    </a>
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    Esqueceu sua senha?
+                                </a>
                                 @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0 mt-2">
+                            <div class="col-md-8 offset-md-4">
+                                <a class="btn btn-link pl-0" href="{{ route('register') }}">
+                                    Não tem cadastro? Cadastre-se aqui!
+                                </a>
                             </div>
                         </div>
                     </form>

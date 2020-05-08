@@ -44,41 +44,38 @@ class CreditCard
         $creditCard->setSender()->setName($user->name);
         
         $creditCard->setSender()->setEmail($email);
-       
-        $creditCard->setSender()->setPhone()->withParameters( // depois incluir telefone p/ user
-            11,
-            56273440
+
+        $creditCard->setSender()->setPhone()->withParameters(
+            substr($user->mobile_phone, 0, 2),
+            substr($user->mobile_phone, 2)
         );
         
-        $creditCard->setSender()->setDocument()->withParameters( // depois incluir CPF pra user
-            'CPF',
-            '45161603070'
-        );
+        $creditCard->setSender()->setDocument()->withParameters('CPF', $user->cpf);
         
         $creditCard->setSender()->setHash($this->cardInfo['hash']);
         
         $creditCard->setSender()->setIp('127.0.0.0');
         
         $creditCard->setShipping()->setAddress()->withParameters( // depois incluir END p/ user
-            'Av. Brig. Faria Lima',
-            '1384',
-            'Jardim Paulistano',
-            '01452002',
-            'São Paulo',
-            'SP',
+            $user->address,
+            $user->number,
+            $user->neighborhood,
+            $user->cep,
+            $user->city,
+            $user->uf,
             'BRA',
-            'apto. 114'
+            $user->complement
         );
         
         $creditCard->setBilling()->setAddress()->withParameters( //  depois incluir END p/ user
-            'Av. Brig. Faria Lima',
-            '1384',
-            'Jardim Paulistano',
-            '01452002',
-            'São Paulo',
-            'SP',
+            $user->address,
+            $user->number,
+            $user->neighborhood,
+            $user->cep,
+            $user->city,
+            $user->uf,
             'BRA',
-            'apto. 114'
+            $user->complement
         );
         
         $creditCard->setToken($this->cardInfo['card_token']);
@@ -87,19 +84,16 @@ class CreditCard
         $installmentAmount = number_format($installmentAmount, 2, '.', '');
         $creditCard->setInstallment()->withParameters($quantity, $installmentAmount);
 
-        $creditCard->setHolder()->setBirthdate('01/10/1979'); // depois incluir DATA NASC p/ user
-        
+        $creditCard->setHolder()->setBirthdate($user->date_birth); // deve ser no formato (DD/MM/YYYY)
+
         $creditCard->setHolder()->setName($this->cardInfo['card_name']);
 
-        $creditCard->setHolder()->setPhone()->withParameters( // depois incluir telefone p/ user
-            11,
-            56273440
+        $creditCard->setHolder()->setPhone()->withParameters(
+            substr($user->mobile_phone, 0, 2),
+            substr($user->mobile_phone, 2)
         );
 
-        $creditCard->setHolder()->setDocument()->withParameters( // depois incluir CPF pra user
-            'CPF',
-            '45161603070'
-        );
+        $creditCard->setHolder()->setDocument()->withParameters('CPF', $user->cpf);
 
         $creditCard->setMode('DEFAULT');
 

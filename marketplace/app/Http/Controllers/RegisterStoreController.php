@@ -1,56 +1,34 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\RegisterRequest;
-use App\Mail\UserRegisteredEmail;
-use App\Providers\RouteServiceProvider;
-use App\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\RegisterRequest;
+use Illuminate\Support\Facades\Hash;
+use App\Mail\UserRegisteredEmail;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use App\User;
 
-class RegisterController extends Controller
+class RegisterStoreController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
-    use RegistersUsers;
-
-    protected $redirectTo = '/home';
-
-    public function __construct()
+    public function index()
     {
-        $this->middleware('guest');
+        return view('register-store');
     }
 
-    protected function validator(array $request)
-    {
-        return Validator::make($request, RegisterRequest::$rules);
-    }
-
-    protected function create(array $request)
+    public function create(RegisterRequest $request)
     {
         $chars = array(".", "-", "(", ")", " ");
-        
-        $user = User::create([
+
+        $store = User::create([
             'name' => $request['name'],
             'cpf' => str_replace($chars, "", $request['cpf']),
             'date_birth' => $request['date_birth'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
-            'profile' => 'PROFILE_USER',
+            'profile' => 'PROFILE_STORE',
             'mobile_phone' => str_replace($chars, "", $request['mobile_phone']),
             'cep' => $request['cep'],
             'address' => $request['address'],
@@ -62,7 +40,7 @@ class RegisterController extends Controller
         ]);
 
         flash('Cadastro criado com sucesso')->success();
-        return redirect()->route('home');
+        return redirect('/admin/stores');
     }
 
     // após registro do usuário, se tiver carrinho de compras -> ir pro checkout

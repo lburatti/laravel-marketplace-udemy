@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
     {
         $user1 = User::create([
             'name' => 'João dos Santos',
-            'cpf' => '55544433322',
+            'cpf' => '58254604975',
             'date_birth' => '01/02/1970',
             'email' => 'joaodossantos@email.com',
             'email_verified_at' => now(),
@@ -27,13 +27,14 @@ class UsersTableSeeder extends Seeder
             'address' => 'Rua XYZ',
             'number' => '200',
             'complement' => 'Casa',
+            'neighborhood' => 'Centro',
             'city' => 'São Paulo',
             'uf' => 'SP'
         ]);
 
         $user2 = User::create([
             'name' => 'Maria Aparecida da Silva',
-            'cpf' => '44455566677',
+            'cpf' => '47516030783',
             'date_birth' => '10/05/1970',
             'email' => 'mariaaparecida@email.com',
             'email_verified_at' => now(),
@@ -45,13 +46,14 @@ class UsersTableSeeder extends Seeder
             'address' => 'Rua dos Jardins',
             'number' => '2500',
             'complement' => 'Apto 125',
+            'neighborhood' => 'Jardim das Flores',
             'city' => 'São Paulo',
             'uf' => 'SP'
         ]);
 
         $user3 = User::create([
             'name' => 'José da Costa',
-            'cpf' => '11122233344',
+            'cpf' => '88513775703',
             'date_birth' => '19/10/1970',
             'email' => 'josecosta@email.com',
             'email_verified_at' => now(),
@@ -63,13 +65,14 @@ class UsersTableSeeder extends Seeder
             'address' => 'Rua do Comércio',
             'number' => '2210',
             'complement' => 'Loja 02',
+            'neighborhood' => 'Primavera',
             'city' => 'São Paulo',
             'uf' => 'SP'
         ]);
 
         $user4 = User::create([
             'name' => 'Luana Barbosa',
-            'cpf' => '22233344455',
+            'cpf' => '53375809654',
             'date_birth' => '25/12/1980',
             'email' => 'luanabarbosa@email.com',
             'email_verified_at' => now(),
@@ -80,13 +83,14 @@ class UsersTableSeeder extends Seeder
             'cep' => '01836-000',
             'address' => 'Rua das Rosas',
             'number' => '610',
+            'neighborhood' => 'Liberdade',
             'city' => 'São Paulo',
             'uf' => 'SP'
         ]);
 
         $user5 = User::create([
             'name' => 'Joaquim da Silva',
-            'cpf' => '66655544433',
+            'cpf' => '35790185401',
             'date_birth' => '22/02/1978',
             'email' => 'joaquimsilva@email.com',
             'email_verified_at' => now(),
@@ -98,13 +102,14 @@ class UsersTableSeeder extends Seeder
             'address' => 'Rua XPTO',
             'number' => '190',
             'complement' => 'Casa',
+            'neighborhood' => 'Vila Maria',
             'city' => 'São Paulo',
             'uf' => 'SP'
         ]);
 
         $user6 = User::create([
             'name' => 'Jaqueline Souza',
-            'cpf' => '11144466688',
+            'cpf' => '08399968706',
             'date_birth' => '20/12/1983',
             'email' => 'jaquelinesouza@email.com',
             'email_verified_at' => now(),
@@ -115,6 +120,7 @@ class UsersTableSeeder extends Seeder
             'cep' => '01836-002',
             'address' => 'Rua das Pedras',
             'number' => '1230',
+            'neighborhood' => 'Vila Nova',
             'city' => 'São Paulo',
             'uf' => 'SP'
         ]);

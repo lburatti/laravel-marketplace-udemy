@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="row">
+<div class="row admin-create-edit">
     <div class="col-12">
         <h2 class="card-title my-0">Criar Loja</h2>
         <hr>

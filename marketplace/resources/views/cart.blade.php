@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="row">
+<div class="row pages-margin">
     <div class="col-12">
         <h2 class="card-title pt-3">Carrinho de Compras</h2>
         <hr>

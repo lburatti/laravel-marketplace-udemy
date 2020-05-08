@@ -1,7 +1,7 @@
 @extends('layouts.front')
 
 @section('content')
-<div class="row">
+<div class="row pages-margin">
     <div class="col-md-12">
         <h2 class="card-title py-3 alert alert-success">
             Muito obrigado por sua compra!

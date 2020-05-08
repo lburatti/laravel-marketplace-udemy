@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="row">
+<div class="row pages-margin">
     <div class="col-6">
         @if($product->photos->count())
         <img src="{{ asset('storage/'.$product->photos->first()->image) }}" alt="" class="card-img-top">
