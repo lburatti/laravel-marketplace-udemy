@@ -44,6 +44,7 @@
         <h2 class="card-title">Lojas em Destaque</h2>
         <hr>
     </div>
+
     <div id="myCarousel" class="carousel slide col-12" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -60,7 +61,7 @@
                     <img src="{{ asset('assets/img/no-logo.png') }}" class="img-fluid" alt="Loja sem logo...">
                     @endif
                 </div>
-                <div class="card-store px-5">
+                <div class="card-store px-0">
                     <h3 class="card-subtitle pt-3">{{ $store->name }}</h3>
                     <a href="{{ route('store.single', ['slug' => $store->slug]) }}" class="btn btn-sm btn-primary">Ir para Loja</a>
                 </div>
@@ -68,6 +69,7 @@
             @endforeach
         </div>
     </div>
+
 
 </div>
 
