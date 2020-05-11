@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
+<div class="row pages-margin">
   <div class="col-12 orders-notifications pt-3">
     <h2 class="card-title my-0">Notificações de Pedidos Recebidos</h2>
     @if($unreadNotifications->count())

@@ -39,24 +39,36 @@
 </div>
 
 <!-- LOJAS -->
-<div class="row mt-5">
+<div class="row mt-5 pages-margin">
     <div class="col-12 pt-2">
         <h2 class="card-title">Lojas em Destaque</h2>
         <hr>
     </div>
-    @foreach($stores as $store)
-    <div class="col-4">
-        @if($store->logo)
-        <img src="{{ asset('storage/' . $store->logo) }}" alt="{{ $store->name }}" class="img-fluid">
-        @else
-        <img src="{{ asset('assets/img/no-logo.png') }}" class="img-fluid" alt="Loja sem logo...">
-        @endif
-        <div class="card-store">
-            <h3 class="card-subtitle pt-3">{{ $store->name }}</h3>
-            <a href="{{ route('store.single', ['slug' => $store->slug]) }}" class="btn btn-sm btn-primary">Ir para Loja</a>
+    <div id="myCarousel" class="carousel slide col-12" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            @foreach($stores as $store)
+            <div class="carousel-item {{ $loop->first ? 'active' : '' }} carousel-image" style="background-size: cover;">
+                <div class="">
+                    @if($store->logo)
+                    <img src="{{ asset('storage/' . $store->logo) }}" alt="{{ $store->name }}" class="img-fluid">
+                    @else
+                    <img src="{{ asset('assets/img/no-logo.png') }}" class="img-fluid" alt="Loja sem logo...">
+                    @endif
+                </div>
+                <div class="card-store px-5">
+                    <h3 class="card-subtitle pt-3">{{ $store->name }}</h3>
+                    <a href="{{ route('store.single', ['slug' => $store->slug]) }}" class="btn btn-sm btn-primary">Ir para Loja</a>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
-    @endforeach
+
 </div>
 
 @endsection

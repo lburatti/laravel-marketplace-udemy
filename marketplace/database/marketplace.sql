@@ -17,3 +17,8 @@ SELECT * FROM order_store;
 SELECT * FROM notifications;
 
 DELETE FROM `marketplace`.`users` WHERE (`id` = '47');
+
+SELECT count('store_id') as products_count FROM products
+LEFT JOIN stores on stores.id = products.store_id
+group by store_id
+order by products_count desc;

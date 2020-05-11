@@ -38,7 +38,16 @@ class StoreController extends Controller
 
     public function store(StoreRequest $request)
     {
-        $data = $request->all();
+        $chars = array(".", "-", "(", ")", " ");
+
+        $data = [
+            'name' => $request['name'],
+            'description' => $request['description'],
+            'phone' => str_replace($chars, "", $request['phone']),
+            'mobile_phone' => str_replace($chars, "", $request['mobile_phone']),
+            'logo' => $request['logo'],
+        ];
+
         $user = auth()->user();
 
         // LOGO
@@ -61,7 +70,16 @@ class StoreController extends Controller
 
     public function update(StoreRequest $request, $store)
     {
-        $data = $request->all();
+        $chars = array(".", "-", "(", ")", " ");
+
+        $data = [
+            'name' => $request['name'],
+            'description' => $request['description'],
+            'phone' => str_replace($chars, "", $request['phone']),
+            'mobile_phone' => str_replace($chars, "", $request['mobile_phone']),
+            'logo' => $request['logo'],
+        ];
+        
         $store = $this->store->find($store);
 
         // LOGO

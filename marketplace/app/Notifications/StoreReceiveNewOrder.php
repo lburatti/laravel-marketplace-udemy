@@ -44,9 +44,10 @@ class StoreReceiveNewOrder extends Notification
 
     public function toNexmo($notifiable)
     {
+        $mobile_phone = auth()->user()->store->mobile_phone;
         return (new NexmoMessage)
                 ->content('Você recebeu um novo pedido em nosso site')
-                ->from('5511995210970')
+                ->from("55".$mobile_phone)
                 ->unicode();
     }
 }
