@@ -17,8 +17,8 @@
                 <p class="card-text">{{ $product->description }}</p>
                 <h3 class="card-subtitle">R$ {{ number_format($product->price, 2, ',', '.') }}</h3>
                 <div class="row">
-                    <a href="{{ route('product.single', ['slug' => $product->slug]) }}" class="btn btn-primary btn-product col-md-5">Ver produto</a>
-                    <form class="col-md-5" action="{{ route('cart.add') }}" method="POST">
+                    <a href="{{ route('product.single', ['slug' => $product->slug]) }}" class="btn btn-primary btn-product col-5">Ver produto</a>
+                    <form class="col-5" action="{{ route('cart.add') }}" method="POST">
                         @csrf
                         <input type="hidden" name="product[name]" value="{{ $product->name }}">
                         <input type="hidden" name="product[price]" value="{{ $product->price }}">

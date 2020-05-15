@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @yield('stylesheets')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
         <a class="navbar-brand" href="{{route('home')}}">Marketplace</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -90,16 +91,16 @@
         @yield('content')
     </div>
 
-    <!-- Bootstrap JS + JQuery -->
-    <script src="{{ asset('js/app.js') }}"></script>
-
-    @yield('scripts')
-
     <footer class="footer-nav">
         <div class="container-fluid">
             <p class="m-0 p-0">{{ date('Y') }}</p>
         </div>
     </footer>
+
+    <!-- Bootstrap JS + JQuery -->
+    <script src="{{ asset('js/app.js') }}"></script>
+
+    @yield('scripts')
 
 </body>
 
